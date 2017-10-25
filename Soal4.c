@@ -1,23 +1,19 @@
 #include <stdio.h>
-int main()
+#include <stdlib.h>
+#include <pthread.h>
+#include <string.h>
+#include <unistd.h>
+
+
+void* factorial (void* faktorial)
 {
-	int n, i;
+        int n, i;
 	faktorial = 1;
-	printf("Masukan integer: ");
 	scanf("%d", &n);
-
-	//  akan error jika user memasukan integer negatif
-	if (n < 0)
-		printf("Error! faktorial yang dimasukan bernilai negatif "); 
-
-	else
-	{
-		for (i = 1; i <= n; i++)
+        for (i = 1; i <= n; i++)
 		{
 			faktorial = faktorial*i;              // faktorial = faktorial*i;
 		}
 		printf("Faktorial dari %d = %d", n, faktorial);
-	}
-
-	return 0;
 }
+
