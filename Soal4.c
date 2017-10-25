@@ -4,16 +4,37 @@
 #include <string.h>
 #include <unistd.h>
 
+int main(int argc, char* argv[]) 
 
-void* factorial (void* faktorial)
 {
-        int n, i;
+	pthread_t thread[argc];
+	int p, simpen;
+
+	for (p = 1; p<argc; p++)
+	{
+		simpen = atoi(argv[p])
+		pthread_create(thread[p], NULL, &factorial, (void*)simpen);
+	}
+
+	for (p = 1; p<argc; p++) 
+	{
+		pthread_join(thread[p], NULL);
+	}
+
+}
+
+
+void* factorial(void* faktorial)
+{
+	int n, i;
 	faktorial = 1;
 	scanf("%d", &n);
-        for (i = 1; i <= n; i++)
+	
+	for (i = 1; i <= n; i++)
 		{
 			faktorial = faktorial*i;              // faktorial = faktorial*i;
 		}
-		printf("Faktorial dari %d = %d", n, faktorial);
+	
+	printf("Faktorial dari %d = %d", n, faktorial);
 }
 
